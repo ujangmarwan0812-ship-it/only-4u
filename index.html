@@ -5,63 +5,80 @@
 <title>For You 💖</title>
 
 <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: 'Segoe UI', sans-serif;
-        background: linear-gradient(135deg, #2c2c54, #706fd3, #ff7eb3);
-        background-size: 400% 400%;
-        animation: bg 10s ease infinite;
-    }
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #2c2c54, #706fd3, #ff7eb3);
+    background-size: 400% 400%;
+    animation: bg 10s ease infinite;
+}
 
-    @keyframes bg {
-        0% {background-position: 0% 50%;}
-        50% {background-position: 100% 50%;}
-        100% {background-position: 0% 50%;}
-    }
+@keyframes bg {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
 
-    .container {
-        text-align: center;
-    }
+.container {
+    text-align: center;
+}
 
-    .img-box {
-        width: 120px;
-        height: 120px;
-        background: white;
-        border-radius: 20px;
-        margin: 0 auto 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
+.img-box {
+    width: 120px;
+    height: 120px;
+    background: white;
+    border-radius: 20px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+}
 
-    .img-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    .card {
-        padding: 20px 40px;
-        border-radius: 40px;
-        background: rgba(255,255,255,0.2);
-        backdrop-filter: blur(10px);
-        border: 2px solid rgba(255,255,255,0.4);
-        color: white;
-        font-size: 18px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+.card {
+    padding: 20px 40px;
+    border-radius: 40px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.4);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    min-height: 200px;
+}
 
-    .card:hover {
-        transform: scale(1.05);
-        background: rgba(255,255,255,0.3);
+/* Cursor efek ketik */
+.typing::after {
+    content: "|";
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+
+/* Animasi love */
+.love-text {
+    opacity: 0;
+    transform: scale(0.5);
+    animation: lovePop 1.5s ease forwards;
+    margin-top: 15px;
+}
+
+@keyframes lovePop {
+    to {
+        opacity: 1;
+        transform: scale(1.2);
     }
+}
 </style>
 </head>
 
@@ -69,22 +86,74 @@
 
 <div class="container">
     <div class="img-box">
-        <img src="emote.png" alt="cute">
+        <img src="emote.png">
     </div>
 
-    <div class="card" onclick="showMessage()">
-        Klik Aku 🥺
+    <div class="card typing" id="textBox" onclick="startTyping()">
+        Klik Aku 🥺💖
     </div>
 </div>
 
 <script>
-function showMessage() {
-    document.querySelector(".card").innerHTML = `
-        Semangat yaa 🤍<br><br>
-        Jangan takut ujian ya,<br>
-        kamu pasti bisa ✨<br><br>
-        Aku selalu dukung kamu 💕
-    `;
+let started = false;
+
+function startTyping() {
+    if (started) return;
+    started = true;
+
+    const text = `
+Hai NAMA_PACAR 🤍
+
+Selamat pagi yaa cintaa 🥺✨
+Hari ini kamu hebat banget udah sampai di titik ini,
+jadi jangan ragu sama diri kamu sendiri ya 💕
+
+Ujian hari ini mungkin bikin deg-degan,
+tapi aku yakin kamu bisa lewatin semuanya dengan baik 🤍
+
+Kalau nanti kamu capek atau mulai overthinking,
+inget aja… ada aku yang selalu doain kamu 🤲💖
+
+Apapun hasilnya nanti,
+aku tetap bangga sama kamu 🤗
+
+Aku ga butuh kamu jadi sempurna,
+aku cuma butuh kamu tetap berusaha 🤍
+
+Dan hari ini, aku yakin kamu bisa ✨
+
+Semangat yaa cintaa 💕
+jangan lupa… aku selalu di pihak kamu 💖
+`;
+
+    let i = 0;
+    const speed = 35;
+    const box = document.getElementById("textBox");
+    box.innerHTML = "";
+
+    function typing() {
+        if (i < text.length) {
+            box.innerHTML += text.charAt(i).replace(/\n/g, "<br>");
+            i++;
+            setTimeout(typing, speed);
+        } else {
+            box.classList.remove("typing");
+
+            // Tambahin ending
+            box.innerHTML += `
+            <br><br>
+            <div style="font-size:20px;">
+                <b>Aku bangga punya kamu 🤍💖</b>
+            </div>
+
+            <div class="love-text" style="font-size:28px; color:#ff4d6d;">
+                <b>I LOVE YOU NAMA_PACAR 💖</b>
+            </div>
+            `;
+        }
+    }
+
+    typing();
 }
 </script>
 
