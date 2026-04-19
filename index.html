@@ -51,15 +51,12 @@ body {
     border: 2px solid rgba(255,255,255,0.5);
     color: white;
     font-size: 16px;
-    cursor: pointer;
     width: 300px;
-    min-height: 220px;
     text-align: center;
-    line-height: 1.6;
-    overflow: hidden;
+    line-height: 1.7;
 }
 
-/* typing */
+/* typing cursor */
 .typing::after {
     content: "|";
     animation: blink 1s infinite;
@@ -70,24 +67,28 @@ body {
     50% {opacity:0;}
 }
 
-/* love text */
+/* LOVE TEXT FINAL */
 .love-text {
     opacity: 0;
-    transform: scale(0.5);
-    animation: lovePop 1.5s ease forwards;
-    margin-top: 15px;
+    transform: scale(0.6);
+    animation: loveSmooth 1.5s ease forwards;
+    margin-top: 25px;
     text-align: center;
-    word-wrap: break-word;
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff4d6d;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255,77,109,0.7);
 }
 
-@keyframes lovePop {
+@keyframes loveSmooth {
     to {
         opacity: 1;
-        transform: scale(1.1);
+        transform: scale(1);
     }
 }
 
-/* hati jatuh */
+/* hearts */
 .heart {
     position: fixed;
     top: -10px;
@@ -120,11 +121,6 @@ body {
 <script>
 let started = false;
 
-function openFullscreen() {
-    const elem = document.documentElement;
-    if (elem.requestFullscreen) elem.requestFullscreen();
-}
-
 function startHearts() {
     setInterval(() => {
         const heart = document.createElement("div");
@@ -141,8 +137,6 @@ function startHearts() {
 function startAll() {
     if (started) return;
     started = true;
-
-    openFullscreen();
     startHearts();
     startTyping();
 }
@@ -192,8 +186,8 @@ jangan lupa… aku selalu di pihak kamu 💖
                 <b>Aku bangga punya kamu 🤍💖</b>
             </div>
 
-            <div class="love-text" style="font-size:24px; color:#ff4d6d;">
-                <b>I LOVE YOU NAMA_PACAR 💖</b>
+            <div class="love-text">
+                I LOVE YOU <br> NAMA_PACAR 💖
             </div>
             `;
         }
