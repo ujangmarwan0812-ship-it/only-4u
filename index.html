@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You 💖</title>
 
 <style>
@@ -13,23 +14,26 @@ body {
     align-items: center;
     font-family: 'Segoe UI', sans-serif;
     background: 
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
         url('bg.jpg') no-repeat center center/cover;
     overflow: hidden;
 }
 
 .container {
     text-align: center;
+    width: 100%;
 }
 
+/* EMOTE */
 .img-box {
-    width: 120px;
-    height: 120px;
-    background: white;
-    border-radius: 20px;
-    margin: 0 auto 20px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 25px;
+    border-radius: 25px;
     overflow: hidden;
+    background: white;
     animation: float 2s ease-in-out infinite;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
 .img-box img {
@@ -40,23 +44,26 @@ body {
 
 @keyframes float {
     0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-12px); }
 }
 
+/* CARD */
 .card {
-    padding: 25px;
-    border-radius: 25px;
+    padding: 30px;
+    border-radius: 30px;
     background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(12px);
-    border: 2px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255,255,255,0.6);
     color: white;
-    font-size: 16px;
-    width: 300px;
+    font-size: 18px;
+    width: 90%;
+    max-width: 380px;
+    margin: auto;
     text-align: center;
-    line-height: 1.7;
+    line-height: 1.8;
 }
 
-/* typing cursor */
+/* typing */
 .typing::after {
     content: "|";
     animation: blink 1s infinite;
@@ -67,18 +74,17 @@ body {
     50% {opacity:0;}
 }
 
-/* LOVE TEXT FINAL */
+/* LOVE TEXT */
 .love-text {
     opacity: 0;
-    transform: scale(0.6);
+    transform: scale(0.7);
     animation: loveSmooth 1.5s ease forwards;
-    margin-top: 25px;
+    margin-top: 30px;
     text-align: center;
-    font-size: 26px;
+    font-size: 32px;
     font-weight: bold;
     color: #ff4d6d;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255,77,109,0.7);
+    text-shadow: 0 0 15px rgba(255,77,109,0.8);
 }
 
 @keyframes loveSmooth {
@@ -168,7 +174,7 @@ jangan lupa… aku selalu di pihak kamu 💖
 `;
 
     let i = 0;
-    const speed = 30;
+    const speed = 28;
     const box = document.getElementById("textBox");
     box.innerHTML = "";
 
@@ -182,7 +188,7 @@ jangan lupa… aku selalu di pihak kamu 💖
 
             box.innerHTML += `
             <br><br>
-            <div style="font-size:18px;">
+            <div style="font-size:20px;">
                 <b>Aku bangga punya kamu 🤍💖</b>
             </div>
 
