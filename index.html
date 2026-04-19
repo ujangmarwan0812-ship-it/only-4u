@@ -38,32 +38,25 @@ body {
     object-fit: cover;
 }
 
-/* animasi naik turun */
 @keyframes float {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
 .card {
-    padding: 30px 50px;
-    border-radius: 30px;
+    padding: 25px;
+    border-radius: 25px;
     background: rgba(255,255,255,0.25);
     backdrop-filter: blur(12px);
     border: 2px solid rgba(255,255,255,0.5);
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
+    width: 300px;
     min-height: 220px;
-    width: 260px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
+    line-height: 1.6;
+    overflow: hidden;
 }
 
 /* typing */
@@ -83,12 +76,14 @@ body {
     transform: scale(0.5);
     animation: lovePop 1.5s ease forwards;
     margin-top: 15px;
+    text-align: center;
+    word-wrap: break-word;
 }
 
 @keyframes lovePop {
     to {
         opacity: 1;
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
 }
 
@@ -97,7 +92,7 @@ body {
     position: fixed;
     top: -10px;
     color: pink;
-    font-size: 20px;
+    font-size: 18px;
     animation: fall linear forwards;
 }
 
@@ -179,7 +174,7 @@ jangan lupa… aku selalu di pihak kamu 💖
 `;
 
     let i = 0;
-    const speed = 35;
+    const speed = 30;
     const box = document.getElementById("textBox");
     box.innerHTML = "";
 
@@ -193,11 +188,11 @@ jangan lupa… aku selalu di pihak kamu 💖
 
             box.innerHTML += `
             <br><br>
-            <div style="font-size:20px;">
+            <div style="font-size:18px;">
                 <b>Aku bangga punya kamu 🤍💖</b>
             </div>
 
-            <div class="love-text" style="font-size:28px; color:#ff4d6d;">
+            <div class="love-text" style="font-size:24px; color:#ff4d6d;">
                 <b>I LOVE YOU NAMA_PACAR 💖</b>
             </div>
             `;
